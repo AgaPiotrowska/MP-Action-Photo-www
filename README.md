@@ -1,13 +1,15 @@
 # MP ActionPhoto
 
 This is a React powered professional photographer website with built-in login page and API for the owner to upload photos and blog posts.
-I've used React-Router for navigation, Redux for managing the state and I've styled this application with the use of SASS. Website has been set up on AWS.
+I've used React-Router for navigation, Redux for managing the state and I've styled this application with the use of SASS. Website has been set up on AWS. I have used Route53, CloudFront, all the files are stored od S3 and the files' information is kept on DynamoDB. API Gateway is listening to all the events, Lambda is managing the functions and Cognito is used to login the admin. Certificate Manager is managing the SSL.  
 
 ![mpaction1](https://user-images.githubusercontent.com/67587804/99002964-9c460780-253d-11eb-9323-8f624d9aebb8.png)
 
+![webapp](https://user-images.githubusercontent.com/67587804/99846521-c2d7f400-2b76-11eb-83b0-6fa3b62747a6.png)
+
 ## Motivation
 
-I started this project to practise the use of Redux as well as to implement and fetch data from created API...
+I started this project to practise the use of Redux as well as to implement and fetch data from created API. 
 
 ## Content
 
