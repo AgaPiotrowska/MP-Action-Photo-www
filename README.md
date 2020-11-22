@@ -27,7 +27,7 @@ In **About Me** section you will find a short story taking about author's motiva
 
 Section **Realizations** contains the list of author's last commercial projects. Each project has its own gallery with photos. 
 
-The last subpage **Login** is only accessed by the photographer - once logged in, thanks to API connected with .... admin can easily add or remove pictures in a chosen portfolio album, as well as add blog posts. The author has a full control on what's published on the webpage.
+The last subpage **Login** is only accessed by the photographer - admin can easily add or remove pictures in a chosen portfolio album, as well as add blog posts. The author has a full control on what's published on the webpage.
 
 ![logindetails](https://user-images.githubusercontent.com/67587804/99078222-52e9cc80-25be-11eb-8066-63972ced365f.png)
 
