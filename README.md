@@ -1,7 +1,7 @@
 # MP ActionPhoto
 
-This is a React powered professional photographer website with built-in login page and API for the owner to upload photos and blog posts.
-I've used React-Router for navigation, Redux for managing the state and I've styled this application with the use of SASS. Website has been set up on AWS. I have used Route53, CloudFront, all the files are stored od S3 and the files' information is kept on DynamoDB. API Gateway is listening to all the events, Lambda is managing the functions and Cognito is used to login the admin. Certificate Manager is managing the SSL.  
+This is a React powered, 100% serverless professional photographer website with built-in login page and API for the owner to upload photos and blog posts. Frontend stack is: React, React-Router, Redux, SASS and some external libraries (photo gallery, image compressor, text editor). 
+AWS architecutre: react application is stored in S3 and served behind CloudFront (SSL/TLS enabled). Route53 is used as DNS. Albums and photos information are stored in DynamoDB. and actual photos files are stored in S3. Backend server is working on API Gateway connected to Lamba functions. Authentication service for Admin Panel is AWS Cognito (JWT).  
 
 ![mpaction1](https://user-images.githubusercontent.com/67587804/99002964-9c460780-253d-11eb-9323-8f624d9aebb8.png)
 
