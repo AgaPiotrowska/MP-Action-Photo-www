@@ -17,6 +17,7 @@ import RealizationsPage from "./Realizations";
 import GalleryPage from "./GalleryPage";
 import LoginComponent from "./LoginComponent";
 import {useSelector} from "react-redux";
+import FullPost from "./FullPost";
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
                 <Route exact path="/" component={Main} />
                 <Route path="/portfolio/:album" component={GalleryPage}/>
                 <Route path="/portfolio" component={Portfolio}/>
+                <Route path="/posts/:name" component={FullPost}/>
                 <Route path="/blogpage" component={BlogPage}/>
                 <Route path="/videopage" component={VideoPage}/>
                 <Route path="/about" component={About}/>

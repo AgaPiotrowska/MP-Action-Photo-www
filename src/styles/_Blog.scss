@@ -1,0 +1,35 @@
+.blog-component {
+  height: 350px;
+  display: flex;
+  border: 1px solid lightgrey;
+  justify-content: center;
+  text-align: center;
+  width: 60%;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.blog-image {
+  height: 350px;
+  width: 50%;
+  align-items: flex-start;
+  left: 0;
+
+}
+
+.blog-title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  margin: 30px;
+  overflow: hidden;
+}
+
+.react-quill {
+  height: 300px;
+  width: 60%;
+  margin: 50px auto;
+}

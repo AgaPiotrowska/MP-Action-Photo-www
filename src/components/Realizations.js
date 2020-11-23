@@ -16,7 +16,7 @@ const RealizationsPage = ({header}) => {
 
             <HeaderTitle header="REALIZACJE"/>
             <div className="realizations-all">
-                <PortfolioBook PortfolioLink={"obt"} PortfolioPicture={"images/wnetrza25.jpg"} SpanText={"obt!"}/>
+                <PortfolioBook PortfolioLink={"obt"} PortfolioPicture={"images/obt10.jpg"} SpanText={"obt!"}/>
                 <PortfolioBook PortfolioLink={"sona"} PortfolioPicture={"images/wnetrza25.jpg"} SpanText={"Sona"}/>
                 <PortfolioBook PortfolioLink={"flower"} PortfolioPicture={"images/wnetrza5.jpg"} SpanText={"Flower My Day"}/>
             </div>

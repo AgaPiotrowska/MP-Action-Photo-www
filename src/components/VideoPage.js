@@ -15,13 +15,13 @@ const VideoPage = ({header}) => {
 
             <HeaderTitle header="VIDEO"/>
             <div>
-                <video width="100%">
-                    <source className="video-link" type="video/mp4" src=""></source>
-                    <a href="/" className="video-div">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/CPMr9Q1C3jE" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen></iframe>
+                <div>
                         <p>FlowerMyDay</p>
                         <p>Odtworz Wideo</p>
-                    </a>
-                </video>
+                </div>
             </div>
         </div>
     )

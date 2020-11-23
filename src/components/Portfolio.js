@@ -61,18 +61,18 @@ const Portfolio = ({header}) => {
         }
     }
 
-    const saveAlbum = () => {
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({width: img.width, height: img.height, file: reader.result, albumName: album})
-        };
+    // const saveAlbum = () => {
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify({width: img.width, height: img.height, file: reader.result, albumName: album})
+    //     };
 
-        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-            });
-    }
+        // fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image', requestOptions)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //     });
+
 
     return (
         <div>
@@ -95,7 +95,7 @@ const Portfolio = ({header}) => {
                     <button
                         type="submit"
                         className="button-upload"
-                        onSubmit={saveAlbum}
+                        // onSubmit={saveAlbum}
                     >Save</button>
                 </div>
                 )}
