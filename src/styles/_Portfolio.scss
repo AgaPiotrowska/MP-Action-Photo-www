@@ -5,6 +5,12 @@
   flex-direction: column;
   margin: 20px;
   position: relative;
+
+  @media (max-width: 1000px) {
+    width: 50vh;
+    margin: 0 auto;
+    align-items: center;
+  }
 }
 
 .portfolio-all {
@@ -12,6 +18,10 @@
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+
+  @media (max-width: 737px) {
+    display: block;
+  }
 }
 
 .photo-portfolio {
@@ -30,7 +40,11 @@
   justify-content: center;
   align-items: center;
   top: 0;
-}
+
+  @media (max-width: 1000px) {
+    text-align: center;
+  }
+
 
 .portfolio-book a {
   position: absolute;
@@ -40,4 +54,4 @@
 .portfolio-book {
   width: 300px;
   height: 300px;
-}
+}}

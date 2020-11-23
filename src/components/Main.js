@@ -10,7 +10,7 @@ const Main = () => {
     return (
         <div className="container-first-page">
             {isLogged && (
-            <div>bakakakak</div>
+                <button className="button-upload">Upload pictures</button>
             )}
             <MainCarousel />
             <MainDiv/>

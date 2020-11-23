@@ -9,6 +9,10 @@
 
 .page-header-logo {
   height: 100px;
+
+  @media (max-width: 500px) {
+    height: 60px;
+  }
 }
 
 .hamburger {

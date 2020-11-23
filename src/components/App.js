@@ -18,17 +18,16 @@ import GalleryPage from "./GalleryPage";
 import LoginComponent from "./LoginComponent";
 import {useSelector} from "react-redux";
 
-
 const App = () => {
 
-    const isLogged = useSelector((state)=> state.isLogged)
+    const isLogged = useSelector((state)=> state.isLogged);
 
     return (
         <BrowserRouter>
             <Navigation/>
             <Switch>
                 <Route exact path="/" component={Main} />
-                <Route path="/portfolio/:sport" component={GalleryPage}/>
+                <Route path="/portfolio/:album" component={GalleryPage}/>
                 <Route path="/portfolio" component={Portfolio}/>
                 <Route path="/blogpage" component={BlogPage}/>
                 <Route path="/videopage" component={VideoPage}/>

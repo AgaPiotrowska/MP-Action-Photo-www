@@ -1,9 +1,18 @@
 import React from "react";
 import HeaderTitle from "./HeaderTitle";
+import { useSelector} from "react-redux";
 
 const VideoPage = ({header}) => {
+
+    const isLogged = useSelector((state) => state.loginStore.isLogged);
+
     return (
         <div>
+
+            {isLogged && (
+                <button className="button-upload">Upload pictures</button>
+            )}
+
             <HeaderTitle header="VIDEO"/>
             <div>
                 <video width="100%">

@@ -19,34 +19,37 @@ const MainCarousel = () => {
         <div className="carousel-container">
             <Slider {...settings}>
                 <div>
-                    <img src="images/main2.jpg" className="carousel-picture"/>
+                    <img src="images/main9.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main6.jpg" className="carousel-picture"/>
+                    <img src="images/main6.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main3.jpg" className="carousel-picture"/>
+                    <img src="images/main3.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main4.jpg" className="carousel-picture"/>
+                    <img src="images/main4.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main5.jpg" className="carousel-picture"/>
+                    <img src="images/main5.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main1.jpg" className="carousel-picture"/>
+                    <img src="images/main1.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main7.jpg" className="carousel-picture"/>
+                    <img src="images/main7.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main8.jpg" className="carousel-picture"/>
+                    <img src="images/main8.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main9.jpg" className="carousel-picture"/>
+                    <img src="images/main11.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
                 <div>
-                    <img src="images/main10.jpg" className="carousel-picture"/>
+                    <img src="images/main10.JPG" className="carousel-picture" alt="carousel"/>
+                </div>
+                <div>
+                    <img src="images/main2.JPG" className="carousel-picture" alt="carousel"/>
                 </div>
             </Slider>
         </div>

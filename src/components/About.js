@@ -7,7 +7,7 @@ const About = ({header}) => {
         <div>
             <HeaderTitle header="O MNIE"/>
             <div className="about-container">
-                <img src="images/about.png" className="about-image" alt="about-picture"/>
+                <img src="images/about.png" className="about-image" alt="about"/>
                 <div className="about-text">
                     <p className="name">Nazywam się Mateusz Piotrowski</p>
                     <p>Jestem poszukiwaczem wspaniałych momentów. Pierwszych promieni słońca na górskich graniach, ścigania się z morskimi falami, dźwięku cięcia ślizgów po niedostępnych stokach, zapachu nafty lotniczej i zatapianiu się w dzikość w odległych miejscach.</p>
