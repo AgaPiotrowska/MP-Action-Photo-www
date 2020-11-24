@@ -1,0 +1,110 @@
+.blog-component {
+  height: 350px;
+  display: flex;
+  border: 1px solid lightgrey;
+  justify-content: center;
+  text-align: center;
+  width: 70%;
+  margin: 20px auto;
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+
+  @media (max-width: 800px) {
+    width: 97%;
+    margin: 0 auto;
+    height: 250px;
+  }
+
+  @media (max-width: 800px) {
+    width: 99%;
+    margin: 0 auto;
+    height: 150px;
+  }
+}
+
+.blog-image {
+  width: 50%;
+  align-items: flex-start;
+  left: 0;
+  object-fit: cover;
+}
+
+.blog-title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  margin: 30px;
+  overflow: hidden;
+  color: black;
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+    margin: 5px;
+  }
+
+  p {
+    @media (max-width: 680px) {
+      display: none;
+    }
+  }
+}
+
+.blog-title-name {
+  margin: 15px;
+  text-decoration: none;
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
+}
+
+.react-quill {
+  height: 800px;
+  width: 60%;
+  margin: 50px auto;
+
+  @media (max-width: 1300px) {
+    width: 90%;
+  }
+}
+
+.full-post {
+  width: 90%;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px 60px;
+  border: 1px solid lightgrey;
+
+  @media (max-width: 1300px) {
+    width: 95%;
+    padding: 5px 10px;
+  }
+}
+
+.full-post h1 {
+  margin: 0 auto;
+  text-align: center;
+
+  @media (max-width: 400px) {
+    font-size: 23px;
+  }
+}
+
+.full-post p {
+  margin: 20px;
+
+  @media (max-width: 500px) {
+  margin: 10px 5px;
+  }
+}
+
+.full-post img {
+  width: 100%;
+  align-items: center;
+}
+

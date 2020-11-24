@@ -1,0 +1,48 @@
+.about-container {
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+  text-align: justify;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media (max-width: 1200px) {
+    width: 97%;
+  }
+
+  @media (max-width: 1000px) {
+    display: block;
+    align-items: center;
+  }
+
+}
+
+.about-image {
+  width: 400px;
+  margin: 20px;
+
+  @media (max-width: 1000px) {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 400px) {
+    width: 250px;
+  }
+}
+
+.name {
+  text-align: center;
+}
+
+div.about-text:nth-child(2), div.about-text:nth-child(3), div.about-text:nth-child(4) {
+  text-indent: 2rem;
+}
+
+.about-text p {
+  margin: 10px 0px;
+}
