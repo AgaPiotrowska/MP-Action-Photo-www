@@ -42,6 +42,7 @@ See live at: https://www.mpactionphoto.pl/
 - [React Photo Gallery](https://www.npmjs.com/package/react-photo-gallery) - Responsive, accessible, composable, and customizable image gallery component
 - [React Snapshot](https://www.npmjs.com/package/react-snapshot) - A zero-configuration static pre-renderer for React apps
 - [React Slick](https://www.npmjs.com/package/react-slick) - Carousel component built with React
+- [react Quill](https://www.npmjs.com/package/react-quill) - Text editor built for the modern web
 - [Amazon Cognito Identity JS](https://www.npmjs.com/package/amazon-cognito-identity-js) - Amazon Cognito Identity Provider JavaScript 
 
 ## License
