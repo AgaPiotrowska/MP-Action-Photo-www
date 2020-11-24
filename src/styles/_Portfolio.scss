@@ -7,7 +7,7 @@
   position: relative;
 
   @media (max-width: 1000px) {
-    width: 50vh;
+    padding-bottom: 20px;
     margin: 0 auto;
     align-items: center;
   }
@@ -19,7 +19,7 @@
   justify-content: center;
   text-align: center;
 
-  @media (max-width: 737px) {
+  @media (max-width: 1000px) {
     display: block;
   }
 }

@@ -13,7 +13,7 @@ const Navigation = () => {
     return(
         <nav className="page-header">
             <div className="image-header">
-                <a href="/"><img src="images/logo.png" height="100px" alt="LogoMPAction" className="page-header-logo"/></a>
+                <a href="/"><img src="./images/logo.png" height="100px" alt="LogoMPAction" className="page-header-logo"/></a>
             </div>
             <button onClick={handleHamburgerClick} className="hamburger" id="hamburger">
                 <div className="line"></div>

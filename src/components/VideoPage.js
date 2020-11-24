@@ -9,9 +9,11 @@ const VideoPage = ({header}) => {
     return (
         <div>
 
-            {isLogged && (
-                <button className="button-upload">Upload pictures</button>
-            )}
+            {/*{isLogged && (*/}
+                <div className="button-upload-div">
+                    <button className="button-upload">Upload video</button>
+                </div>
+
 
             <HeaderTitle header="VIDEO"/>
             <div>

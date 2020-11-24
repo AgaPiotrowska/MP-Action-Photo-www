@@ -77,15 +77,15 @@ function GalleryPage () {
     }
 
     return (
-        <div className="pictures">
-
-            <input
-                type="file"
-                accept="image/*"
-                multiple
-                className="button-upload"
-                onChange={handleImageUpload}
-            />
+        <div>
+            <div className="btn btn-primary btn-file">
+                ADD PICTURES
+                <input type="file"
+                       accept="image/*"
+                       multiple
+                       onChange={handleImageUpload}
+                ></input>
+            </div>
 
             <Gallery photos={images} onClick={openLightbox} />
             <ModalGateway>

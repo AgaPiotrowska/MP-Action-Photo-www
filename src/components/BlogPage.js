@@ -88,9 +88,12 @@ const BlogPage = ({header}) => {
                     onChange={setValue}
                 modules={modules}
                 formats={formats}/>
-                <button
-                onClick={savePost}
-                >Save</button>
+                <div className="button-upload-div">
+                    <button
+                        className="button-upload"
+                    onClick={savePost}
+                    >Save</button>
+                </div>
         <BlogAllPosts/>
         </div>
     );

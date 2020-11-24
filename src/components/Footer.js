@@ -10,9 +10,9 @@ const Footer = () => {
                 </div>
                 <div className="icons">
                     <div className="icon"><a href="https://www.facebook.com/MP_actionphoto-114398969967783/?view_public_for=114398969967783"><img
-                        src="images/fb.svg" alt="FB" /></a></div>
+                        src="./images/fb.svg" alt="FB" /></a></div>
                     <div className="icon"><a href="https://www.instagram.com/travedrenaline/?hl=pl"><img
-                        src="images/ig.svg" alt="IG" /></a></div>
+                        src="./images/ig.svg" alt="IG" /></a></div>
                 </div>
             </div>
             <div className="footer-final">

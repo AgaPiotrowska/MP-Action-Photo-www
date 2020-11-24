@@ -15,7 +15,6 @@ const BlogAllPosts = () => {
     };
 
     useEffect( () => {
-        console.log("hdhfhfh");
         initialize();
     }, []);
 

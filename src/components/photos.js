@@ -1,5 +1,4 @@
-export const photos = [
-    {
+export const photos = [    {
         src: "../images/sport/sport1.jpg",
         width: 2612,
         height: 1742

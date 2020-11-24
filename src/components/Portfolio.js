@@ -76,12 +76,14 @@ const Portfolio = ({header}) => {
 
     return (
         <div>
-            <button
-                className="album-upload"
-                onClick={() => setShowForm(true)}
-            >ADD ALBUM</button>
-            {showForm && (
-                <div>
+            <div className="button-upload-div">
+                <button
+                    className="button-upload"
+                    onClick={() => setShowForm(true)}
+                >ADD ALBUM</button>
+            </div>
+            {/*{showForm && (*/}
+                <div className="button-upload-div">
                 <input
                     type="text"
                     className="button-upload"
@@ -98,7 +100,7 @@ const Portfolio = ({header}) => {
                         // onSubmit={saveAlbum}
                     >Save</button>
                 </div>
-                )}
+
 
             <HeaderTitle header="PORTFOLIO"/>
             <div className="portfolio-all">

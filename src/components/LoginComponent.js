@@ -53,7 +53,7 @@ const LoginComponent = () => {
         <div className="login-form">
             <input type="text" placeholder="login" onChange={(event) => setLogin(event.target.value)} ></input>
             <input type="password" placeholder="password" onChange={(event) => setPassword(event.target.value)} ></input>
-            <button type="submit" onClick={() => authenticate(login, password)}>LOGIN</button>
+            <button className="button-upload" type="submit" onClick={() => authenticate(login, password)}>LOGIN</button>
         </div>
     )
 };
