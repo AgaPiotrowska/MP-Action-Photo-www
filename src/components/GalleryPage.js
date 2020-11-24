@@ -1,16 +1,17 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "./photos";
 import {useSelector} from "react-redux";
 import imageCompression from 'browser-image-compression';
 import { useParams } from "react-router-dom";
+import Spinner from "./Spinner";
 
 function GalleryPage () {
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
     const openLightbox = useCallback((event, { photo, index }) => {
+        console.log(index);
         setCurrentImage(index);
         setViewerIsOpen(true);
     }, []);
@@ -23,6 +24,9 @@ function GalleryPage () {
     const isLogged = useSelector((state) => state.loginStore.isLogged);
 
     const [images, setImages] = useState([]);
+    const [deleting, setDeleting] = useState(false);
+
+    const [savingProcess, setSavingProcess] = useState({saved: 0, total: 0});
 
     let { album } = useParams();
 
@@ -30,8 +34,11 @@ function GalleryPage () {
         fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/albums/'+album)
             .then(response => response.json())
             .then(data => {setImages(data.map((d) => {
-                d.src = "https://forest-spa.online/"+d.name;
-                return d;
+                return {
+                    height: d.height,
+                    width: d.width,
+                    src: "https://forest-spa.online/"+d.name
+                }
             }))});
     };
 
@@ -40,9 +47,18 @@ function GalleryPage () {
     }, []);
 
     async function handleImageUpload(event) {
+        setSavingProcess({saved: 0, total: event.target.files.length})
+        for (const file of event.target.files) {
+           await handleImageUploadSingle(file);
+        }
+        console.log("reloading");
+        setImages([]);
+        initialize();
+    };
 
-        const imageFile = event.target.files[0];
 
+     const handleImageUploadSingle = async (imageFile) => {
+         return new Promise(async resolve => {
         const options = {
             maxSizeMB: 1,
             maxWidthOrHeight: 1920,
@@ -67,14 +83,38 @@ function GalleryPage () {
 
                     fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image', requestOptions)
                         .then(response => response.json())
-                        .then(data => {});
+                        .then(data => {
+                            setSavingProcess( s => ({
+                                saved: s.saved+1,
+                                total: s.total
+                            }));
+                        console.log("done");
+                        resolve();
+                        });
                 };
             });
             img.src = window.URL.createObjectURL(compressedFile);
 
         } catch (error) {
-        }
+        }});
     }
+
+    const deletePhoto = (index) => {
+        const requestOptions = {
+            method: 'DELETE',
+        }
+
+        const imageUrl = images[index].src;
+        const lastSlashIndex = imageUrl.lastIndexOf("/");
+        const imageId = imageUrl.substring(lastSlashIndex + 1)
+
+        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image/'+ imageId, requestOptions)
+            .then(data => {
+                setImages(images => {
+                    return images.filter(i => i.src !== imageUrl);
+                })
+            });
+    };
 
     return (
         <div>
@@ -83,17 +123,39 @@ function GalleryPage () {
                 <input type="file"
                        accept="image/*"
                        multiple
-                       onChange={handleImageUpload}
+                       // onChange={handleImageUpload}
                 ></input>
             </div>
-
-            <Gallery photos={images} onClick={openLightbox} />
+            <button className="button-upload"
+                    onClick={() => setDeleting(!deleting)}>
+                {deleting ? "STOP DELETING" : "DELETE"}
+            </button>
+            {/*<button className="button-upload"*/}
+            {/*        onClick={() => setDeleting(!deleting)}>*/}
+            {/*    {deleting ? "STOP DELETING" : "DELETE"}*/}
+            {/*</button>*/}
+            { savingProcess.saved !== savingProcess.total &&
+            (
+                <div>
+                <Spinner/>
+                <div>Image saved: {savingProcess.saved}, Total: {savingProcess.total}</div>
+                </div>
+                )}
+            <Gallery photos={images}
+                     onClick={(event, { photo, index }) => {
+                if(deleting) {
+                    deletePhoto(index);
+                } else {
+                    openLightbox(event, { photo, index })
+                }
+            }}
+            />
             <ModalGateway>
                 {viewerIsOpen ? (
                     <Modal onClose={closeLightbox}>
                         <Carousel
                             currentIndex={currentImage}
-                            views={photos.map(x => ({
+                            views={images.map(x => ({
                                 ...x,
                                 srcset: x.srcSet,
                                 caption: x.title

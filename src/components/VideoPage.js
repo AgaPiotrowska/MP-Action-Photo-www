@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderTitle from "./HeaderTitle";
 import { useSelector} from "react-redux";
+import Spinner from "./Spinner";
 
 const VideoPage = ({header}) => {
 
@@ -25,6 +26,7 @@ const VideoPage = ({header}) => {
                         <p>Odtworz Wideo</p>
                 </div>
             </div>
+            <Spinner/>
         </div>
     )
 };

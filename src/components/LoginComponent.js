@@ -1,5 +1,5 @@
 import React, {useState}  from "react";
-import {AuthenticationDetails, CognitoUser, CognitoUserPool} from 'amazon-cognito-identity-js';
+import {AuthenticationDetails, CognitoUser, CognitoUserPool, CookieStorage} from 'amazon-cognito-identity-js';
 import {useSelector, useDispatch} from "react-redux";
 import loginAction from "../actions/login";
 import {useHistory} from "react-router-dom";
@@ -24,14 +24,16 @@ const LoginComponent = () => {
 
         const PC = {
             UserPoolId: 'us-east-2_mLfFLjeO2',
-            ClientId: '53bq9gltdmmbk8h1to6g68emhg'
+            ClientId: '53bq9gltdmmbk8h1to6g68emhg',
+            Storage: new CookieStorage({domain: "localhost:3000"})
         };
         const userPool = new CognitoUserPool(PC);
 
         const CU = new CognitoUser(
             {
                 Username: login,
-                Pool: userPool
+                Pool: userPool,
+                Storage: new CookieStorage({domain: "localhost:3000"})
             });
 
         CU.authenticateUser(AD,

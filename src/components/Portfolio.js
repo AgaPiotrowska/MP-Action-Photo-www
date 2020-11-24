@@ -10,6 +10,8 @@ const Portfolio = ({header}) => {
 
     const [items, setItems] = useState([]);
     const [showForm, setShowForm] = useState(false);
+    const [albumName, setAlbumName] = useState("");
+    const [albumText, setAlbumText] = useState("");
 
     useEffect(() => {
         fetch("https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/albums")
@@ -61,17 +63,18 @@ const Portfolio = ({header}) => {
         }
     }
 
-    // const saveAlbum = () => {
-    //     const requestOptions = {
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({width: img.width, height: img.height, file: reader.result, albumName: album})
-    //     };
+    const saveAlbum = () => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name: albumName, text: albumText, link: albumText})
+        };
 
-        // fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image', requestOptions)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //     });
+        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/albums', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+            });
+    }
 
 
     return (
@@ -88,16 +91,18 @@ const Portfolio = ({header}) => {
                     type="text"
                     className="button-upload"
                     placeholder= "album name"
+                    onChange={(e) => setAlbumName(e.target.value)}
                 />
                 <input
                 type="text"
                 className="button-upload"
                 placeholder= "album url"
+                onChange={(e) => setAlbumText(e.target.value)}
                 />
                     <button
                         type="submit"
                         className="button-upload"
-                        // onSubmit={saveAlbum}
+                        onClick={saveAlbum}
                     >Save</button>
                 </div>
 

@@ -4,6 +4,8 @@ import { useSelector} from "react-redux";
 import 'react-quill/dist/quill.snow.css';
 import BlogAllPosts from "./BlogAllPosts";
 import ReactQuill, { Quill } from "react-quill";
+import Spinner from "./Spinner";
+import { useHistory } from "react-router-dom";
 
 const modules = {
     toolbar: [
@@ -32,9 +34,12 @@ const BlogPage = ({header}) => {
     const [value, setValue] = useState('');
     // const isLogged = useSelector((state) => state.loginStore.isLogged);
 
+    const [saving, setSaving] = useState(false);
+
+    const history = useHistory();
 
     const savePost = () => {
-
+        setSaving(true);
         const el = document.createElement("div");
         el.innerHTML = value;
 
@@ -71,7 +76,7 @@ const BlogPage = ({header}) => {
 
         fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/post', requestOptions)
             .then(response => response.json())
-            .then(data => {});
+            .then(data => {history.push("/posts/"+url)});
     };
 
     return (
@@ -94,6 +99,7 @@ const BlogPage = ({header}) => {
                     onClick={savePost}
                     >Save</button>
                 </div>
+            { saving && (<Spinner/>)}
         <BlogAllPosts/>
         </div>
     );
