@@ -29,9 +29,9 @@ const Navigation = () => {
                 <li><Link to="/about">O MNIE</Link></li>
                 <li className="realization-link"><Link to="/realizationspage" >REALIZACJE</Link>
                     <ul className="realizations">
-                        <li><Link to="/obt">obt</Link></li>
-                        <li><Link to="/sona">sona</Link></li>
-                        <li><Link to="/flower">flower my day</Link></li>
+                        <li><Link to="/portfolio/obt">obt</Link></li>
+                        <li><Link to="/portfolio/sona">sona</Link></li>
+                        <li><Link to="/portfolio/flower">flower my day</Link></li>
                     </ul>
                 </li>
             </ul>

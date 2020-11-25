@@ -31,27 +31,26 @@ function GalleryPage () {
     let { album } = useParams();
 
     const initialize = () => {
-        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/albums/'+album)
+        fetch('https://api.mpactionphoto.pl/albums/'+album)
             .then(response => response.json())
             .then(data => {setImages(data.map((d) => {
                 return {
                     height: d.height,
                     width: d.width,
-                    src: "https://forest-spa.online/"+d.name
+                    src: "/"+d.name
                 }
             }))});
     };
 
     useEffect( () => {
         initialize();
-    }, []);
+    }, [album]);
 
     async function handleImageUpload(event) {
         setSavingProcess({saved: 0, total: event.target.files.length})
         for (const file of event.target.files) {
            await handleImageUploadSingle(file);
         }
-        console.log("reloading");
         setImages([]);
         initialize();
     };
@@ -81,14 +80,13 @@ function GalleryPage () {
                         body: JSON.stringify({ width: img.width, height: img.height, file: reader.result, albumName: album })
                     };
 
-                    fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image', requestOptions)
+                    fetch('https://api.mpactionphoto.pl/image', requestOptions)
                         .then(response => response.json())
                         .then(data => {
                             setSavingProcess( s => ({
                                 saved: s.saved+1,
                                 total: s.total
                             }));
-                        console.log("done");
                         resolve();
                         });
                 };
@@ -108,7 +106,7 @@ function GalleryPage () {
         const lastSlashIndex = imageUrl.lastIndexOf("/");
         const imageId = imageUrl.substring(lastSlashIndex + 1)
 
-        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/image/'+ imageId, requestOptions)
+        fetch('https://api.mpactionphoto.pl/image/'+ imageId, requestOptions)
             .then(data => {
                 setImages(images => {
                     return images.filter(i => i.src !== imageUrl);
@@ -118,22 +116,22 @@ function GalleryPage () {
 
     return (
         <div>
+            {isLogged && (
+                <>
             <div className="btn btn-primary btn-file">
                 ADD PICTURES
                 <input type="file"
                        accept="image/*"
                        multiple
-                       // onChange={handleImageUpload}
+                       onChange={handleImageUpload}
                 ></input>
             </div>
-            <button className="button-upload"
-                    onClick={() => setDeleting(!deleting)}>
-                {deleting ? "STOP DELETING" : "DELETE"}
-            </button>
-            {/*<button className="button-upload"*/}
-            {/*        onClick={() => setDeleting(!deleting)}>*/}
-            {/*    {deleting ? "STOP DELETING" : "DELETE"}*/}
-            {/*</button>*/}
+            <div className="button-upload-div-left">
+                <button className="button-upload"
+                        onClick={() => setDeleting(!deleting)}>
+                    {deleting ? "STOP DELETING" : "DELETE"}
+                </button>
+            </div>
             { savingProcess.saved !== savingProcess.total &&
             (
                 <div>
@@ -141,6 +139,8 @@ function GalleryPage () {
                 <div>Image saved: {savingProcess.saved}, Total: {savingProcess.total}</div>
                 </div>
                 )}
+                </>
+            )}
             <Gallery photos={images}
                      onClick={(event, { photo, index }) => {
                 if(deleting) {

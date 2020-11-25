@@ -32,9 +32,9 @@ const formats = [
 
 const BlogPage = ({header}) => {
     const [value, setValue] = useState('');
-    // const isLogged = useSelector((state) => state.loginStore.isLogged);
 
     const [saving, setSaving] = useState(false);
+    const isLogged = useSelector((state) => state.loginStore.isLogged);
 
     const history = useHistory();
 
@@ -62,19 +62,24 @@ const BlogPage = ({header}) => {
                 descriptionName = descriptionName.substring(0, 200) + "..."
             };
 
-        const imageElement = el.querySelector("img");
+
+
+        const imageElements = Array.from(el.querySelectorAll("img"));
+        const imagesData = imageElements.map(i => i.src);
+
+        imageElements.forEach((i, index) => i.src = "placeholder"+index);
 
         const url = titleName.replace(/\s+/g, '-').toLowerCase();
 
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: titleName, description: descriptionName, file: value, image: imageElement.src, url: url })
+            body: JSON.stringify({ name: titleName, description: descriptionName, file: el.innerHTML, images: imagesData, url: url })
         };
 
 
 
-        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/post', requestOptions)
+        fetch('https://api.mpactionphoto.pl/post', requestOptions)
             .then(response => response.json())
             .then(data => {history.push("/posts/"+url)});
     };
@@ -83,9 +88,10 @@ const BlogPage = ({header}) => {
         <div>
             <HeaderTitle header="MIGAWKI"/>
 
-            {/*{isLogged && (*/}
-            {/*<button className="button-upload">Upload blog post</button>*/}
-            {/*)}*/}
+            {isLogged && (
+                <>
+            <button className="button-upload">Upload blog post</button>
+
             <ReactQuill
                 className="react-quill"
                     theme="snow"
@@ -100,6 +106,8 @@ const BlogPage = ({header}) => {
                     >Save</button>
                 </div>
             { saving && (<Spinner/>)}
+            </>
+                )}
         <BlogAllPosts/>
         </div>
     );

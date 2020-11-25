@@ -8,7 +8,7 @@ const FullPost = ({}) => {
   const [html, setHtml] = useState("");
 
   const initialize = () => {
-    fetch('https://forest-spa.online/'+name)
+    fetch('/'+name)
         .then(data => data.text())
         .then(data => {
           setHtml(data);

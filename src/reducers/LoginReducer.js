@@ -1,6 +1,5 @@
 const initialState = {
-    isLogged: false,
-    token: null
+    isLogged: false
 };
 
 const LoginReducer = (state= initialState, action) => {
@@ -8,8 +7,7 @@ const LoginReducer = (state= initialState, action) => {
         case "SIGN_IN" :
             return {
             ...state,
-                isLogged: true,
-                token: action.payload
+                isLogged: action.payload
     }
         default:
         return {

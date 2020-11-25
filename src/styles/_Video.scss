@@ -1,15 +1,17 @@
-.video-link {
-  position: relative;
-}
-
-.video-div {
-  width: 300px;
-}
-
-.video-div p {
-  position: absolute;
-  font-size: 20px;
-  line-height: 25px;
-  color: white;
+.video-container {
+  margin: 0 auto;
   text-align: center;
+}
+
+.video-title {
+  margin: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  color: lightgrey;
+}
+
+.video-container video {
+  border: none;
+  width: 97%;
+  max-height: 700px;
 }

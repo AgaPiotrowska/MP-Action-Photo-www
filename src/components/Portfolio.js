@@ -14,7 +14,7 @@ const Portfolio = ({header}) => {
     const [albumText, setAlbumText] = useState("");
 
     useEffect(() => {
-        fetch("https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/albums")
+        fetch("https://api.mpactionphoto.pl/albums")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -46,7 +46,6 @@ const Portfolio = ({header}) => {
                 window.URL.revokeObjectURL(img.src); // Free some memory
 
                 let reader = new FileReader();
-                console.log(img);
                 reader.readAsDataURL(compressedFile);
                 reader.onload = function () {
                     console.log(reader.result);
@@ -70,7 +69,7 @@ const Portfolio = ({header}) => {
             body: JSON.stringify({name: albumName, text: albumText, link: albumText})
         };
 
-        fetch('https://o7byko6zw0.execute-api.eu-central-1.amazonaws.com/prod/albums', requestOptions)
+        fetch('https://api.mpactionphoto.pl/albums', requestOptions)
             .then(response => response.json())
             .then(data => {
             });
@@ -79,13 +78,14 @@ const Portfolio = ({header}) => {
 
     return (
         <div>
+            {isLogged && (
+                <>
             <div className="button-upload-div">
                 <button
                     className="button-upload"
                     onClick={() => setShowForm(true)}
                 >ADD ALBUM</button>
             </div>
-            {/*{showForm && (*/}
                 <div className="button-upload-div">
                 <input
                     type="text"
@@ -105,6 +105,8 @@ const Portfolio = ({header}) => {
                         onClick={saveAlbum}
                     >Save</button>
                 </div>
+            </>
+            )}
 
 
             <HeaderTitle header="PORTFOLIO"/>
@@ -113,9 +115,6 @@ const Portfolio = ({header}) => {
                 {items.map(item => (
                     <PortfolioBook PortfolioLink={item.link} PortfolioTitle={item.name} PortfolioPicture={item.picture} SpanText={item.text}/>
                         ))}
-            {/*<PortfolioBook PortfolioLink={"sport"} PortfolioPicture={"images/main6.jpg"} PortfolioTitle={"sport / outdoor / eventy"} SpanText={"sport"}/>*/}
-            {/*<PortfolioBook PortfolioLink={"wnetrza"} PortfolioPicture={"images/architektura.jpg"} PortfolioTitle={"architektura / wnętrza / produkty"} SpanText={"wnętrza"}/>*/}
-            {/*<PortfolioBook PortfolioLink={"portret"} PortfolioPicture={"images/portret.jpg"} PortfolioTitle={"portret / reportaż / zwierzęta"} SpanText={"portrety"}/>*/}
             </div>
         </div>
     )

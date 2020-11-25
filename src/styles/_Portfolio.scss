@@ -18,6 +18,7 @@
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
 
   @media (max-width: 1000px) {
     display: block;

@@ -1,7 +1,7 @@
-const loginAction = ({token}) => {
+const loginAction = ({isLogged}) => {
     return {
         type: "SIGN_IN",
-        payload: token
+        payload: isLogged
     }
 };
 
