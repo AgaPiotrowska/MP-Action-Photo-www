@@ -1,7 +1,7 @@
 # MP ActionPhoto
 
 This is a React powered, 100% serverless professional photographer website with built-in login page and API for the owner to upload photos and blog posts. Frontend stack is: React, React-Router, Redux, SASS and some external libraries (photo gallery, image compressor, text editor). 
-AWS architecutre: react application is stored in S3 and served behind CloudFront (SSL/TLS enabled). Route53 is used as DNS. Albums and photos information are stored in DynamoDB. and actual photos files are stored in S3. Backend server is working on API Gateway connected to Lamba functions. Authentication service for Admin Panel is AWS Cognito (JWT).  
+AWS architecutre: react application is stored in S3 and served behind CloudFront (SSL/TLS enabled). Route53 is used as DNS. Albums and photos information are stored in DynamoDB. and actual photos files are stored in S3. Backend server is working on API Gateway connected to Lamba functions. Authentication service for Admin Panel is Cookie-based.  
 
 ![mpaction1](https://user-images.githubusercontent.com/67587804/99002964-9c460780-253d-11eb-9323-8f624d9aebb8.png)
 
@@ -43,7 +43,6 @@ See live at: https://www.mpactionphoto.pl/
 - [React Snapshot](https://www.npmjs.com/package/react-snapshot) - A zero-configuration static pre-renderer for React apps
 - [React Slick](https://www.npmjs.com/package/react-slick) - Carousel component built with React
 - [react Quill](https://www.npmjs.com/package/react-quill) - Text editor built for the modern web
-- [Amazon Cognito Identity JS](https://www.npmjs.com/package/amazon-cognito-identity-js) - Amazon Cognito Identity Provider JavaScript 
 
 ## License
 
